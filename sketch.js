@@ -14,7 +14,7 @@ function preload() {
 
 function setup() {
   // const canvas = createCanvas(window.innerWidth, window.innerHeight);
-  const canvas = createCanvas(400, 400);
+  const canvas = createCanvas(500, 600);
   engine = Engine.create();
   world = engine.world;
 
@@ -22,9 +22,9 @@ function setup() {
   for (let i = 0; i < 3; i++) {
     boxes[i] = new Box(330, 300 - i * 75, 50, 75);
   }
-  bird = new Bird(100, 300, 25);
+  bird = new Bird(100, 450, 25);
 
-  slingShot = new SlingShot(100, 300, bird.body);
+  slingShot = new SlingShot(100, 450, bird.body);
 
   const mouse = Mouse.create(canvas.elt);
   mouse.pixelRatio = pixelDensity();
