@@ -12,7 +12,7 @@ class Bird {
     rotate(angle);
     fill(255);
     rectMode(CENTER);
-    circle(0, 0, this.r);
+    circle(0, 0, this.r * 2);
     pop();
   }
 }
