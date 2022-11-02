@@ -10,9 +10,8 @@ class Bird {
     push();
     translate(pos.x, pos.y);
     rotate(angle);
-    fill(255);
-    rectMode(CENTER);
-    circle(0, 0, this.r * 2);
+    imageMode(CENTER);
+    image(angryImg, 0, 0, this.r * 2, this.r * 2);
     pop();
   }
 }

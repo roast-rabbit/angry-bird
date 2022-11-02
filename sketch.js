@@ -5,9 +5,16 @@ const boxes = [];
 let bird;
 let world, engine;
 let mConstraint;
+let slingShot;
+
+let angryImg;
+function preload() {
+  angryImg = loadImage("angry.png");
+}
 
 function setup() {
-  const canvas = createCanvas(window.innerWidth, window.innerHeight);
+  // const canvas = createCanvas(window.innerWidth, window.innerHeight);
+  const canvas = createCanvas(600, 400);
   engine = Engine.create();
   world = engine.world;
 
@@ -15,7 +22,9 @@ function setup() {
   for (let i = 0; i < 3; i++) {
     boxes[i] = new Box(450, 300 - i * 75, 50, 75);
   }
-  bird = new Bird(50, 300, 50);
+  bird = new Bird(150, 300, 16);
+
+  slingShot = new SlingShot(150, 300, bird.body);
 
   const mouse = Mouse.create(canvas.elt);
   mouse.pixelRatio = pixelDensity();
@@ -26,6 +35,20 @@ function setup() {
 
   mConstraint = MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
+}
+
+function keyPressed() {
+  if (key === " ") {
+    World.remove(world, bird.body);
+    bird = new Bird(150, 300, 16);
+    slingShot.attach(bird.body);
+  }
+}
+
+function mouseReleased() {
+  setTimeout(() => {
+    slingShot.fly();
+  }, 100);
 }
 
 function draw() {
