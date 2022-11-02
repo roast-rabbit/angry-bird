@@ -14,17 +14,17 @@ function preload() {
 
 function setup() {
   // const canvas = createCanvas(window.innerWidth, window.innerHeight);
-  const canvas = createCanvas(600, 400);
+  const canvas = createCanvas(400, 400);
   engine = Engine.create();
   world = engine.world;
 
   ground = new Ground(width / 2, height - 10, width, 20);
   for (let i = 0; i < 3; i++) {
-    boxes[i] = new Box(450, 300 - i * 75, 50, 75);
+    boxes[i] = new Box(330, 300 - i * 75, 50, 75);
   }
-  bird = new Bird(150, 300, 16);
+  bird = new Bird(100, 300, 16);
 
-  slingShot = new SlingShot(150, 300, bird.body);
+  slingShot = new SlingShot(100, 300, bird.body);
 
   const mouse = Mouse.create(canvas.elt);
   mouse.pixelRatio = pixelDensity();
