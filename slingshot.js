@@ -17,6 +17,6 @@ class SlingShot {
     stroke(255);
     const posA = this.sling.pointA;
     const posB = this.sling.body.position;
-    line;
+    line(posA.x, posA.y, posB.x, posB.y);
   }
 }

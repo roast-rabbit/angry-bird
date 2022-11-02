@@ -7,7 +7,7 @@ let world, engine;
 let mConstraint;
 
 function setup() {
-  const canvas = createCanvas(600, 400);
+  const canvas = createCanvas(window.innerWidth, window.innerHeight);
   engine = Engine.create();
   world = engine.world;
 
@@ -18,6 +18,8 @@ function setup() {
   bird = new Bird(50, 300, 50);
 
   const mouse = Mouse.create(canvas.elt);
+  mouse.pixelRatio = pixelDensity();
+
   const options = {
     mouse: mouse,
   };
