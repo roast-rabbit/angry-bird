@@ -22,7 +22,7 @@ function setup() {
   for (let i = 0; i < 3; i++) {
     boxes[i] = new Box(330, 300 - i * 75, 50, 75);
   }
-  bird = new Bird(100, 300, 16);
+  bird = new Bird(100, 300, 25);
 
   slingShot = new SlingShot(100, 300, bird.body);
 
@@ -40,7 +40,7 @@ function setup() {
 function keyPressed() {
   if (key === " ") {
     World.remove(world, bird.body);
-    bird = new Bird(150, 300, 16);
+    bird = new Bird(150, 300, 25);
     slingShot.attach(bird.body);
   }
 }
@@ -52,7 +52,7 @@ function mouseReleased() {
 }
 
 function draw() {
-  background(0);
+  background("#212529");
   Engine.update(engine);
   ground.show();
   for (let box of boxes) {
